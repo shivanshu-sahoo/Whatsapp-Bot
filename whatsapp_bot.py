@@ -9,9 +9,12 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from dateutil.parser import parse
 import time
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-account_sid = 'ACb4a4209c04c2818d3c14f9cea874d132' 
-auth_token = 'd88c9114f03febb1e92a39ad75182758' 
+account_sid = os.environ['account_sid']
+auth_token = os.environ['auth_token']
 
 client_twilio = Client(account_sid, auth_token)
 def send_rem(rem):
@@ -35,7 +38,7 @@ worksheet = client.open("Messages").sheet1
 list_of_lists = worksheet.get_all_values()
 scheduler.start()
 while(1):
-    time.sleep(1)
+    time.sleep(2)
     row = worksheet.row_values(2)
     if row:
         try:
