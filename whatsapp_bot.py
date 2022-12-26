@@ -39,7 +39,7 @@ worksheet = client.open("Messages").sheet1
 list_of_lists = worksheet.get_all_values()
 scheduler.start()
 while(1):
-    time.sleep(2)
+    time.sleep(10)
     row = worksheet.row_values(2)
     if row:
         try:
