@@ -16,7 +16,8 @@ load_dotenv()
 
 account_sid = os.getenv('account_sid')
 auth_token = os.getenv('auth_token')
-
+print(account_sid)
+print(auth_token)
 client_twilio = Client(account_sid, auth_token)
 def send_rem(rem):
   message = client_twilio.messages.create(
@@ -30,7 +31,7 @@ s=['https://www.googleapis.com/auth/spreadsheets',
 'https://www.googleapis.com/auth/drive']
 
 
-scheduler = BackgroundScheduler()
+scheduler = BackgroundScheduler(timezone="Asia/Kolkata")
 creds= ServiceAccountCredentials.from_json_keyfile_name("credentials.json",s)
 client=gspread.authorize(creds)
 
