@@ -44,10 +44,13 @@ while(1):
     if row:
         try:
             if row[2]=="Done":
+                print("Schedule 1")
                 scheduler.add_job(send_rem, 'date', run_date=parse(row[0]), args=[row[1]])
                 worksheet.delete_rows(2)
-        except:
+                print("Schedule 2")
+        except Exception as e:
             pass
+
     else:
         pass
 
