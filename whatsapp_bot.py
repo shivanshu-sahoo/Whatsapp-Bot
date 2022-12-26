@@ -11,10 +11,11 @@ from dateutil.parser import parse
 import time
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
-account_sid = os.environ['account_sid']
-auth_token = os.environ['auth_token']
+account_sid = os.getenv('account_sid')
+auth_token = os.getenv('auth_token')
 
 client_twilio = Client(account_sid, auth_token)
 def send_rem(rem):
